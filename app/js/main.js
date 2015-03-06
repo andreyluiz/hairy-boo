@@ -1,0 +1,1 @@
+angular.module('hairy-boo', ['ngMaterial']);

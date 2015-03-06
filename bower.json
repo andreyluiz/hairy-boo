@@ -1,0 +1,22 @@
+{
+  "name": "hairy-boo",
+  "version": "0.0.1",
+  "homepage": "https://github.com/andreyluiz/hairy-boo",
+  "authors": [
+    "Andrey Luiz <andreyluiz.developer@gmail.com>"
+  ],
+  "description": "Simple angular material test app",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.8.3",
+    "material-design-icons": "~1.0.1"
+  }
+}
