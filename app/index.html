@@ -1,24 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="hairy-boo">
 <head>
-	<meta charset="UTF-8">
-	<title>Angular Material</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	
-	<link rel="stylesheet" href="vendor/angular-material/angular-material.css">
+  <title>Angular Material</title>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  
+  <link rel="stylesheet" href="vendor/angular-material/angular-material.css">
+  <link rel="stylesheet" href="assets/main.css">
 </head>
-<body>
-	<md-button class="md-fab" aria-label="favorite">
-		<md-icon md-svg-src="img/icons/ic_favorite_24px.svg"></md-icon>
-	</md-button>
-
-	<script type="text/javascript" src="vendor/angular/angular.js"></script>
-	<script type="text/javascript" src="vendor/angular-animate/angular-animate.js"></script>
-	<script type="text/javascript" src="vendor/angular-aria/angular-aria.js"></script>
-	<script type="text/javascript" src="vendor/angular-material/angular-material.js"></script>
-
-	<script type="text/javascript" src="js/main.js"></script>
+<body ng-cloak ng-controller="ContainerCtrl" layout="row">
+  
+  
+  
+  <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+    <md-toolbar layout="row" id="menu-toolbar">
+      <md-icon md-svg-icon="app-icon"></md-icon>
+      <h1 class="md-toolbar-tools">Entulho</h1>
+    </md-toolbar>
+    <md-content id="menu-content" flex>
+      <md-list>
+        <md-item ng-repeat="menu in menus">
+          <md-button ng-class="{'selected' : menu.index === selectedMenu }" ng-click="changeRoute(menu)">
+            <md-item-content>
+              <div class="md-tile-left">
+                <md-icon md-svg-icon="{{menu.icon}}"></md-icon>
+              </div>
+              <div class="md-tile-content">
+                <h3>{{menu.name}}</h3>
+              </div>
+            </md-item-content>
+          </md-button>
+        </md-item>
+      </md-list>
+    </md-content>
+  </md-sidenav>
+  
+  
+  
+  <div flex>
+    <md-toolbar layout="row">
+      <md-button class="menu" hide-gt-sm ng-click="toggleMenu()" aria-label="Show menu">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1 class="md-toolbar-tools">Mapa</h1>
+    </md-toolbar>
+    <md-content flex id="content" layout="column">
+      <div ui-view></div>
+    </md-content>
+  </div>
+  
+  
+  
+  <script type="text/javascript" src="vendor/angular/angular.js"></script>
+  <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="vendor/angular-animate/angular-animate.js"></script>
+  <script type="text/javascript" src="vendor/angular-aria/angular-aria.js"></script>
+  <script type="text/javascript" src="vendor/angular-material/angular-material.js"></script>
+  
+  <script type="text/javascript" src="src/app.js"></script>
+  <script type="text/javascript" src="src/container/ContainerConfig.js"></script>
+  <script type="text/javascript" src="src/container/ContainerCtrl.js"></script>
+  
 </body>
 </html>
